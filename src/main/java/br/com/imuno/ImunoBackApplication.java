@@ -1,0 +1,13 @@
+package br.com.imuno;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ImunoBackApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ImunoBackApplication.class, args);
+	}
+
+}
