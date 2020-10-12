@@ -1,5 +1,6 @@
 package br.com.imuno.exception;
 
+@SuppressWarnings("serial")
 public class FuncionarioNaoEncontradoException extends EntidadeNaoEncontradaException {
 	
 	public FuncionarioNaoEncontradoException(String mensagem) {
