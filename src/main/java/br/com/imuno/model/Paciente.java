@@ -1,5 +1,7 @@
 package br.com.imuno.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -23,13 +25,13 @@ public class Paciente {
 	private String nome;
 	
 	@Column(name = "data_nascimento")
-	private String dataNascimento;
+	private LocalDate dataNascimento;
 	
 	@Column
 	private String genero;
 	
-	@Column
-	private String cpf;
+	@Column(name = "cpf_rne")
+	private String cpfRne;
 	
 	@Column(name = "nome_mae")
 	private String nomeMae;
