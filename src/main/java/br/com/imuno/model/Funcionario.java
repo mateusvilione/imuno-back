@@ -37,6 +37,9 @@ public class Funcionario {
 	@Column
 	private String telefone;
 	
+	@Column(name = "telefone_emergencia")
+	private String telefoneEmergencia;
+	
 	@Column
 	private String senha;
 

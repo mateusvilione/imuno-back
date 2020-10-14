@@ -13,6 +13,7 @@ public class FuncionarioDTO {
 	private Endereco endereco;
 	private String email;
 	private String telefone;
+	private String telefoneEmergencia;
 	private String senha;
 
 }

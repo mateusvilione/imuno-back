@@ -33,7 +33,7 @@ public class FuncionarioController {
 	private FuncionarioService service;
 	
 	@PostMapping
-	public ResponseEntity<?> salvar(@RequestBody @Valid FuncionarioRequest funcionarioRequest) {
+	public ResponseEntity<?> salvar(@RequestBody FuncionarioRequest funcionarioRequest) {
 		try {
 			FuncionarioDTO funcionarioDTO = service.salvar(funcionarioRequest);
 			return ResponseEntity.status(HttpStatus.CREATED).body(funcionarioDTO);
