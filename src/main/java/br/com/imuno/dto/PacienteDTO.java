@@ -13,9 +13,8 @@ public class PacienteDTO {
 	private String cpfRne;
 	private String nomeMae;
 	private String nomePai;
-	private String nacionalidade;
 	private String telefone;
-	private String telefoneErmegencia;
+	private String telefoneEmergencia;
 	private String email;
 	private String senha;
 	private String cartaoSus;

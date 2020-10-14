@@ -38,15 +38,12 @@ public class Paciente {
 	
 	@Column(name = "nome_pai")
 	private String nomePai;
-	
-	@Column
-	private String nacionalidade;
-	
+
 	@Column
 	private String telefone;
 	
-	@Column(name = "telefone_ermegencia")
-	private String telefoneErmegencia;
+	@Column(name = "telefone_emergencia")
+	private String telefoneEmergencia;
 	
 	@Column
 	private String email;

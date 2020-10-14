@@ -32,15 +32,12 @@ public class PacienteRequest {
 	private String nomePai;
 	
 	@NotBlank
-	private String nacionalidade;
-	
-	@NotBlank
 	@Pattern(regexp = "(\\(?\\d{2}\\)?\\s)?(\\d{4,5}\\-\\d{4})", message = "Fora do padrão de um telefone")
 	private String telefone;
 	
-	@NotBlank
+    @NotBlank
 	@Pattern(regexp = "(\\(?\\d{2}\\)?\\s)?(\\d{4,5}\\-\\d{4})", message = "Fora do padrão de um telefone")
-	private String telefoneErmegencia;
+	private String telefoneEmergencia;
 	
 	@NotBlank
 	@Email(message = "Email inválido")
