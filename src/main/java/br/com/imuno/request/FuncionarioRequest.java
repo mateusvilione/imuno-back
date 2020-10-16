@@ -16,6 +16,7 @@ public class FuncionarioRequest {
 	@Email(message = "Email inválido")
 	private String email;
 	private String telefone;
+	private String telefoneEmergencia;
 	private String senha;
 
 }
