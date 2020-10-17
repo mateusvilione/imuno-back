@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.imuno.controller.openapi.FuncionarioControllerOpenApi2;
 import br.com.imuno.dto.FuncionarioDTO;
 import br.com.imuno.model.Funcionario;
 import br.com.imuno.request.FuncionarioRequest;
@@ -27,7 +28,7 @@ import br.com.imuno.service.FuncionarioService;
 @CrossOrigin
 @RestController
 @RequestMapping("/funcionario")
-public class FuncionarioController {
+public class FuncionarioController implements FuncionarioControllerOpenApi2 {
 	
 	@Autowired
 	private FuncionarioService service;
@@ -70,7 +71,7 @@ public class FuncionarioController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<?> atualizar(@RequestBody @Valid Funcionario funcionario, @PathVariable Long id) {
+	public ResponseEntity<?> atualizar(@RequestBody Funcionario funcionario, @PathVariable Long id) {
 		
 		Funcionario funcionarioAtual = service.buscar(id).orElse(null);
 		

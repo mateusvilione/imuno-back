@@ -16,7 +16,6 @@ public class PacienteDTO {
 	private String telefone;
 	private String telefoneEmergencia;
 	private String email;
-	private String senha;
 	private String cartaoSus;
 	private Endereco endereco;
 	
