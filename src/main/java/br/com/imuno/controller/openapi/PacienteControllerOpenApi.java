@@ -1,5 +1,7 @@
 package br.com.imuno.controller.openapi;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.http.MediaType;
@@ -33,6 +35,13 @@ public interface PacienteControllerOpenApi {
 	})
 	@ApiImplicitParam(name = "id", value = "ID a ser buscado", required = true, dataType = "int", paramType = "path", example = "1")
 	ResponseEntity<Paciente> buscar(Long id);
+	
+	@ApiOperation(httpMethod = "GET", value = "Buscar todos os Pacientes")
+	@ApiResponses({ 
+		@ApiResponse(code = 200, message = "Buscar todos os Pacientes", response = PacienteDTO.class),
+		@ApiResponse(code = 404, message = "O recurso não foi encontrado", response = Problem.class) 
+	})
+	public List<PacienteDTO> listar();
 	
 	@ApiOperation(httpMethod = "DELETE", value = "Excluir Paciente pelo ID", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ApiResponses({ 

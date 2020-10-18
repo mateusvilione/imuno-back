@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.imuno.controller.openapi.FuncionarioControllerOpenApi2;
+import br.com.imuno.controller.openapi.FuncionarioControllerOpenApi;
 import br.com.imuno.dto.FuncionarioDTO;
 import br.com.imuno.model.Funcionario;
 import br.com.imuno.request.FuncionarioRequest;
@@ -28,7 +28,7 @@ import br.com.imuno.service.FuncionarioService;
 @CrossOrigin
 @RestController
 @RequestMapping("/funcionario")
-public class FuncionarioController implements FuncionarioControllerOpenApi2 {
+public class FuncionarioController implements FuncionarioControllerOpenApi {
 	
 	@Autowired
 	private FuncionarioService service;

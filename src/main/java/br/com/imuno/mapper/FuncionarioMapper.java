@@ -21,7 +21,5 @@ public class FuncionarioMapper {
 	public FuncionarioDTO modelToDTO(Funcionario funcionario) {
 		return modelMapper.map(funcionario, FuncionarioDTO.class);
 	}
-	
-	
 
 }
