@@ -29,4 +29,5 @@ public class Administrador {
 	
 	@Column
 	private String senha;
+	
 }

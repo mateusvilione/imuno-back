@@ -3,6 +3,7 @@ package br.com.imuno.request;
 
 import javax.validation.constraints.NotBlank;
 
+import br.com.imuno.model.Administrador;
 import br.com.imuno.model.Endereco;
 import lombok.Data;
 
@@ -13,4 +14,7 @@ public class PostoRequest {
 	private String nome;
 	
 	private Endereco endereco;
+	
+	private Administrador administrador;
+
 }

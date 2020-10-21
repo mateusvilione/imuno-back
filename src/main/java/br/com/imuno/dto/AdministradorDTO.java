@@ -14,4 +14,5 @@ public class AdministradorDTO {
 	private String email;
 	
 	private String senha;
+	
 }
