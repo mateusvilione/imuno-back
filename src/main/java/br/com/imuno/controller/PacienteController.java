@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.imuno.controller.openapi.PacienteControllerOpenApi;
 import br.com.imuno.dto.PacienteDTO;
 import br.com.imuno.model.Paciente;
+import br.com.imuno.model.Usuario;
+import br.com.imuno.repository.UsuarioRepository;
 import br.com.imuno.request.PacienteRequest;
 import br.com.imuno.service.PacienteService;
 
@@ -37,6 +39,7 @@ public class PacienteController implements PacienteControllerOpenApi {
 	@PostMapping
 	public ResponseEntity<?> salvar(@RequestBody PacienteRequest pacienteRequest) {
 		try {
+			
 			PacienteDTO pacienteDTO = _service.salvar(pacienteRequest);
 			return ResponseEntity.status(HttpStatus.CREATED).body(pacienteDTO);
 		} catch (Exception ex) {
