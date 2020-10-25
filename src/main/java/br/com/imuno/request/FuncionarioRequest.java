@@ -7,8 +7,6 @@ import lombok.Data;
 
 @Data
 public class FuncionarioRequest {
-	
-	private Long id;
 	private String nome;
 	private String cpf;
 	private String coren;

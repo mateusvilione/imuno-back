@@ -47,7 +47,7 @@ public class PacienteService {
 		Usuario usuario = new Usuario();
 		
 		Grupo grupo = new Grupo();
-		grupo = _grupoRepository.findById((long)1).get();		
+		grupo = _grupoRepository.findById((long)3).get();		
 
 		Set<Grupo> listaGrupo = Set.copyOf(Arrays.asList(grupo));
 		
