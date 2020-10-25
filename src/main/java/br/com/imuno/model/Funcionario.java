@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.Data;
 
@@ -40,7 +41,7 @@ public class Funcionario {
 	@Column(name = "telefone_emergencia")
 	private String telefoneEmergencia;
 	
-	@Column
+	@Transient
 	private String senha;
 
 }
