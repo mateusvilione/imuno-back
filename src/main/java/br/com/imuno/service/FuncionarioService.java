@@ -48,14 +48,15 @@ public class FuncionarioService {
 
 		Set<Grupo> listaGrupo = Set.copyOf(Arrays.asList(grupo));
 		
-		usuario.setGrupos(listaGrupo);
-		usuario.setEmail(funcionarioRequest.getEmail());
 		usuario.setNome(funcionarioRequest.getNome());
+		usuario.setEmail(funcionarioRequest.getEmail());
 		usuario.setSenha(passwordEncoder.encode(funcionarioRequest.getSenha()));
+		usuario.setGrupos(listaGrupo);
 		
-		_usuarioRepository.save(usuario);
+		var iduser = _usuarioRepository.save(usuario);
 		
 		Funcionario funcionario = mapper.requestToModel(funcionarioRequest);
+		funcionario.setUsuarioId(iduser.getId());
 		funcionario.setSenha(passwordEncoder.encode(funcionarioRequest.getSenha()));
 		return mapper.modelToDTO(repository.save(funcionario));
 	}

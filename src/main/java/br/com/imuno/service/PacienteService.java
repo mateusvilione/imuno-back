@@ -41,7 +41,6 @@ public class PacienteService {
 	private PasswordEncoder passwordEncoder;
 	
 
-	@SuppressWarnings("unchecked")
 	@Transactional
 	public PacienteDTO salvar(PacienteRequest pacienteRequest) {
 		Usuario usuario = new Usuario();
@@ -51,17 +50,16 @@ public class PacienteService {
 
 		Set<Grupo> listaGrupo = Set.copyOf(Arrays.asList(grupo));
 		
-		usuario.setGrupos(listaGrupo);
-		usuario.setEmail(pacienteRequest.getEmail());
 		usuario.setNome(pacienteRequest.getNome());
+		usuario.setEmail(pacienteRequest.getEmail());
 		usuario.setSenha(passwordEncoder.encode(pacienteRequest.getSenha()));
+		usuario.setGrupos(listaGrupo);
 		
-		_usuarioRepository.save(usuario);
+		var iduser = _usuarioRepository.save(usuario);
 		
 		Paciente paciente = _mapper.requestToModel(pacienteRequest);
-		paciente.setDataNascimento(LocalDate.now());
+		paciente.setUsuarioId(iduser.getId());
 		paciente.setSenha(passwordEncoder.encode(pacienteRequest.getSenha()));
-		
 		
 		return _mapper.modelToDTO(_repository.save(paciente));
 	}

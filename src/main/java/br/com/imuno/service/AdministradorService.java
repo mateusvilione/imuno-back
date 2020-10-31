@@ -48,14 +48,15 @@ public class AdministradorService {
 
 		Set<Grupo> listaGrupo = Set.copyOf(Arrays.asList(grupo));
 		
-		usuario.setGrupos(listaGrupo);
-		usuario.setEmail(administradorRequest.getEmail());
 		usuario.setNome(administradorRequest.getNome());
+		usuario.setEmail(administradorRequest.getEmail());
 		usuario.setSenha(passwordEncoder.encode(administradorRequest.getSenha()));
+		usuario.setGrupos(listaGrupo);
 		
-		_usuarioRepository.save(usuario);
+		var iduser = _usuarioRepository.save(usuario);
 		
 		Administrador administrador = mapper.requestToModel(administradorRequest);
+		administrador.setUsuarioId(iduser.getId());
 		administrador.setSenha(passwordEncoder.encode(administradorRequest.getSenha()));
 		return mapper.modelToDTO(repository.save(administrador));
 	}
@@ -80,6 +81,7 @@ public class AdministradorService {
 	}
 	
 	public List<AdministradorDTO> listar() {
+
 		return repository.findAll()
 				.stream()
 				.map(admin -> mapper.modelToDTO(admin))

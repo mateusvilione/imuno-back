@@ -1,8 +1,10 @@
 package br.com.imuno.model;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -27,16 +30,26 @@ public class Usuario {
 
 	@Column(nullable = false)
 	private String nome;
-	
+
 	@Column(nullable = false)
 	private String email;
-	
+
 	@Column(nullable = false)
 	private String senha;
-	
+
 	@ManyToMany
-	@JoinTable(name = "usuario_grupo", joinColumns = @JoinColumn(name = "usuario_id"),
-			inverseJoinColumns = @JoinColumn(name = "grupo_id"))
+	@JoinTable(name = "usuario_grupo", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "grupo_id"))
 	private Set<Grupo> grupos = new HashSet<>();
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "usuario_id")
+	private List<Administrador> administradores;
+		
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "usuario_id")
+	private List<Paciente> pacientes;
 	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "usuario_id")
+	private List<Funcionario> funcionarios;
 }

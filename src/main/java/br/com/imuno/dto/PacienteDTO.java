@@ -1,5 +1,7 @@
 package br.com.imuno.dto;
 
+import javax.persistence.Column;
+
 import br.com.imuno.model.Endereco;
 import lombok.Data;
 
@@ -7,6 +9,7 @@ import lombok.Data;
 public class PacienteDTO {
 	
 	private Long id;
+	@Column(table = "usuario", name = "nome")
 	private String nome;
 	private String dataNascimento;
 	private String genero;

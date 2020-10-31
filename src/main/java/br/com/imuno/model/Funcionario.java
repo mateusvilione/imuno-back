@@ -19,10 +19,16 @@ public class Funcionario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column
 	private String nome;
 	
+	@Column
+	private String email;
+	
+	@Column
+	private String senha;
+
 	@Column
 	private String cpf;
 	
@@ -33,15 +39,11 @@ public class Funcionario {
 	private Endereco endereco;
 	
 	@Column
-	private String email;
-	
-	@Column
 	private String telefone;
 	
 	@Column(name = "telefone_emergencia")
 	private String telefoneEmergencia;
-	
-	@Transient
-	private String senha;
 
+	@Column(name = "usuario_id")
+	private Long usuarioId;
 }

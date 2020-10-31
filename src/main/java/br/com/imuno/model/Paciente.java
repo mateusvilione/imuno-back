@@ -25,6 +25,12 @@ public class Paciente {
 	@Column
 	private String nome;
 	
+	@Column
+	private String email;
+	
+	@Column
+	private String senha;
+	
 	@Column(name = "data_nascimento")
 	private LocalDate dataNascimento;
 	
@@ -46,16 +52,13 @@ public class Paciente {
 	@Column(name = "telefone_emergencia")
 	private String telefoneEmergencia;
 	
-	@Column
-	private String email;
-	
-	@Transient
-	private String senha;
-	
+
 	@Column(name = "cartao_sus")
 	private String cartaoSus;
 	
 	@Embedded
 	private Endereco endereco;
 
+	@Column(name = "usuario_id")
+	private Long usuarioId;
 }
