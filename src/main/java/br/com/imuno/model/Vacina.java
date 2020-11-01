@@ -32,13 +32,5 @@ public class Vacina {
 	
 	@OneToMany(mappedBy = "vacina", cascade = CascadeType.ALL)
 	private List<Dose> dose;
-		
-	//idade_recomendada
-	@OneToMany(mappedBy = "vacina", cascade = CascadeType.ALL)
-	private List<IdadeRecomendada> idadeRecomendada;
-	
-	@ManyToOne
-	@JoinColumn(name = "lote_id", nullable = false)
-	private Lote lote;
 
 }

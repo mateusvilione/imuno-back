@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import br.com.imuno.model.enums.Doses;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -23,12 +24,23 @@ public class Dose {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(nullable = false)
+	@Column
 	private Integer numero;
 	
-	@JsonIgnore	
+	@Column(nullable = false, name = "idade_minima")
+	private Integer idadeMinima;
+	
+	@Column(name = "idade_maxima")
+	private Integer idadeMaxima;
+	
+	@Column(nullable = false)
+	private Doses tipo;
+	
+	@Column
+	private Integer reforco;
+		
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="vacina_id", nullable = false) 
 	private Vacina vacina;
-	
 }

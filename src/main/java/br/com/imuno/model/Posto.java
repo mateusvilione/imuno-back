@@ -1,5 +1,6 @@
 package br.com.imuno.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -25,6 +26,6 @@ public class Posto {
 	@Embedded
 	private Endereco endereco;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private Administrador administrador;
 }
