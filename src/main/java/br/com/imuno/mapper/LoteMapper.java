@@ -4,11 +4,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import br.com.imuno.dto.AdministradorDTO;
 import br.com.imuno.dto.LoteDTO;
-import br.com.imuno.model.Administrador;
 import br.com.imuno.model.Lote;
-import br.com.imuno.request.AdministradorRequest;
 import br.com.imuno.request.LoteRequest;
 
 @Component

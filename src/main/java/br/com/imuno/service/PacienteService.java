@@ -1,6 +1,5 @@
 package br.com.imuno.service;
 
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -36,31 +35,30 @@ public class PacienteService {
 	private UsuarioRepository _usuarioRepository;
 	@Autowired
 	private PacienteMapper _mapper;
-	
+
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-	
 
 	@Transactional
 	public PacienteDTO salvar(PacienteRequest pacienteRequest) {
 		Usuario usuario = new Usuario();
-		
+
 		Grupo grupo = new Grupo();
-		grupo = _grupoRepository.findById((long)3).get();		
+		grupo = _grupoRepository.findById((long) 3).get();
 
 		Set<Grupo> listaGrupo = Set.copyOf(Arrays.asList(grupo));
-		
+
 		usuario.setNome(pacienteRequest.getNome());
 		usuario.setEmail(pacienteRequest.getEmail());
 		usuario.setSenha(passwordEncoder.encode(pacienteRequest.getSenha()));
 		usuario.setGrupos(listaGrupo);
-		
+
 		var iduser = _usuarioRepository.save(usuario);
-		
+
 		Paciente paciente = _mapper.requestToModel(pacienteRequest);
 		paciente.setUsuarioId(iduser.getId());
 		paciente.setSenha(passwordEncoder.encode(pacienteRequest.getSenha()));
-		
+
 		return _mapper.modelToDTO(_repository.save(paciente));
 	}
 
