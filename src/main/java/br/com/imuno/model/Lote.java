@@ -23,6 +23,9 @@ public class Lote {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column
+	private String codigo;
+	
 	@Column(name = "data_fabricacao")
 	private LocalDate dataFabricacao;
 	

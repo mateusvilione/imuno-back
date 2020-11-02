@@ -150,8 +150,8 @@ public class SwaggerConfig implements WebMvcConfigurer {
 	
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
-				.title("Digital House - Loja API")
-				.description("API para o Sistema de Loja da Digital House")
+				.title("Digital House - Imuno API")
+				.description("API para o Sistema de Controle de Caderneta de Vacinas")
 				.version("1.0")
 				.contact(new Contact("Digital House", "https://www.digitalhouse.com", "contato@digitalhouse.com.br"))
 				.build();

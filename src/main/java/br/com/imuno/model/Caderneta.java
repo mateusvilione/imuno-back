@@ -1,5 +1,8 @@
 package br.com.imuno.model;
 
+import java.time.OffsetDateTime;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -39,4 +42,7 @@ public class Caderneta {
 	@ManyToOne
 	@JoinColumn(name = "paciente_id", nullable = false)
 	private Paciente paciente;
+	
+	@Column(name="data_vacinacao")
+    private OffsetDateTime dataCadastro;
 }
