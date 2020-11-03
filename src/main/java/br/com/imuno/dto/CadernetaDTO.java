@@ -1,5 +1,7 @@
 package br.com.imuno.dto;
 
+import java.time.LocalDate;
+
 import br.com.imuno.model.Dose;
 import br.com.imuno.model.Funcionario;
 import br.com.imuno.model.Lote;
@@ -18,4 +20,6 @@ public class CadernetaDTO {
 	private Dose dose;
 
 	private Paciente paciente;
+	
+	private LocalDate dataVacinacao;
 }

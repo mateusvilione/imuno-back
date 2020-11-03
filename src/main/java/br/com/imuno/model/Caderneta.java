@@ -1,6 +1,6 @@
 package br.com.imuno.model;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -44,5 +44,5 @@ public class Caderneta {
 	private Paciente paciente;
 	
 	@Column(name="data_vacinacao")
-    private OffsetDateTime dataCadastro;
+    private LocalDate dataVacinacao;
 }

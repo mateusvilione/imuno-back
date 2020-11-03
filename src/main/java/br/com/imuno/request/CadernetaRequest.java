@@ -1,23 +1,22 @@
 package br.com.imuno.request;
 
-import br.com.imuno.model.Dose;
-import br.com.imuno.model.Funcionario;
-import br.com.imuno.model.Lote;
-import br.com.imuno.model.Paciente;
-import br.com.imuno.model.Vacina;
+import java.time.LocalDate;
+
 import lombok.Data;
 
 @Data
 public class CadernetaRequest {
 
-	private Lote lote;
+	private Long loteId;
 
-	private Funcionario funcionario;
+	private Long funcionarioId;
 
-	private Vacina vacina;
+	private Long vacinaId;
 
-	private Dose dose;
+	private Long doseId;
 
-	private Paciente paciente;
+	private Long pacienteId;
+	
+	private LocalDate dataVacinacao;
 
 }

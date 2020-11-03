@@ -13,11 +13,13 @@ public class CadernetaMapper {
 
 	@Autowired
 	private ModelMapper modelMapper;
-	
+
 	public Caderneta requestToModel(CadernetaRequest cadernetaRequest) {
+		modelMapper.getConfiguration().setAmbiguityIgnored(true);
+		modelMapper.getConfiguration().setFieldMatchingEnabled(true);
 		return modelMapper.map(cadernetaRequest, Caderneta.class);
 	}
-	
+
 	public CadernetaDTO modelToDTO(Caderneta caderneta) {
 		return modelMapper.map(caderneta, CadernetaDTO.class);
 	}
