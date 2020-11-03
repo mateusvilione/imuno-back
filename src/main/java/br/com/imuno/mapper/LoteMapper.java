@@ -14,6 +14,8 @@ public class LoteMapper {
 	private ModelMapper modelMapper;
 
 	public Lote requestToModel(LoteRequest loteRequest) {
+		modelMapper.getConfiguration().setAmbiguityIgnored(true);
+		modelMapper.getConfiguration().setFieldMatchingEnabled(true);
 		return modelMapper.map(loteRequest, Lote.class);
 	}
 

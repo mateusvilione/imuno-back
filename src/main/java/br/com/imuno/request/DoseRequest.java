@@ -1,7 +1,5 @@
 package br.com.imuno.request;
 
-
-import br.com.imuno.model.Vacina;
 import br.com.imuno.model.enums.Doses;
 import lombok.Data;
 
@@ -17,6 +15,7 @@ public class DoseRequest {
 	private Doses tipo;
 
 	private Integer reforco;
-
-	private Vacina vacina;
+	
+	private Long vacinaId;
+	
 }

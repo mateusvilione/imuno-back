@@ -2,9 +2,6 @@ package br.com.imuno.request;
 
 import java.time.LocalDate;
 
-import br.com.imuno.model.Administrador;
-import br.com.imuno.model.Posto;
-import br.com.imuno.model.Vacina;
 import lombok.Data;
 
 @Data
@@ -20,10 +17,10 @@ public class LoteRequest {
 
 	private LocalDate dataValidade;
 
-	private Administrador administrador;
+	private Long administradorId;
 
-	private Posto posto;
+	private Long postoId;
 
-	private Vacina vacina;
+	private Long vacinaId;
 
 }
