@@ -53,7 +53,7 @@ public class FuncionarioService {
 		usuario.setSenha(passwordEncoder.encode(funcionarioRequest.getSenha()));
 		usuario.setGrupos(listaGrupo);
 		
-		var iduser = _usuarioRepository.save(usuario);
+		Usuario iduser = _usuarioRepository.save(usuario);
 		
 		Funcionario funcionario = mapper.requestToModel(funcionarioRequest);
 		funcionario.setUsuarioId(iduser.getId());

@@ -53,7 +53,7 @@ public class PacienteService {
 		usuario.setSenha(passwordEncoder.encode(pacienteRequest.getSenha()));
 		usuario.setGrupos(listaGrupo);
 
-		var iduser = _usuarioRepository.save(usuario);
+		Usuario iduser = _usuarioRepository.save(usuario);
 
 		Paciente paciente = _mapper.requestToModel(pacienteRequest);
 		paciente.setUsuarioId(iduser.getId());

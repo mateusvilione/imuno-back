@@ -53,7 +53,7 @@ public class AdministradorService {
 		usuario.setSenha(passwordEncoder.encode(administradorRequest.getSenha()));
 		usuario.setGrupos(listaGrupo);
 		
-		var iduser = _usuarioRepository.save(usuario);
+		Usuario iduser = _usuarioRepository.save(usuario);
 		
 		Administrador administrador = mapper.requestToModel(administradorRequest);
 		administrador.setUsuarioId(iduser.getId());
