@@ -1,6 +1,7 @@
 package br.com.imuno.service;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -46,7 +47,10 @@ public class FuncionarioService {
 		Grupo grupo = new Grupo();
 		grupo = _grupoRepository.findById((long)2).get();		
 
-		Set<Grupo> listaGrupo = Set.copyOf(Arrays.asList(grupo));
+		Set<Grupo> listaGrupo = new HashSet<>(); 
+		List<Grupo> list = Arrays.asList(grupo); 
+        for (Grupo t : list) 
+        	listaGrupo.add(t);
 		
 		usuario.setNome(funcionarioRequest.getNome());
 		usuario.setEmail(funcionarioRequest.getEmail());
