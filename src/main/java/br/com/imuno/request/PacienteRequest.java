@@ -27,8 +27,7 @@ public class PacienteRequest {
 	
 	@NotBlank
 	private String nomeMae;
-	
-	@NotBlank
+
 	private String nomePai;
 	
 	@NotBlank
