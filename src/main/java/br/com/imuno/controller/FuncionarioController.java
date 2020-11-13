@@ -69,12 +69,12 @@ public class FuncionarioController implements FuncionarioControllerOpenApi {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<?> atualizar(@RequestBody Funcionario funcionario, @PathVariable Long id) {
+	public ResponseEntity<?> atualizar(@RequestBody FuncionarioRequest funcionario, @PathVariable Long id) {
 		
 		Funcionario funcionarioAtual = service.buscar(id).orElse(null);
 		
 		if (funcionarioAtual != null) {
-			BeanUtils.copyProperties(funcionario, funcionarioAtual, "id");
+			BeanUtils.copyProperties(funcionario, funcionarioAtual, "id", "usuarioId");
 			
 			service.atualizar(funcionarioAtual);
 			return ResponseEntity.ok(funcionarioAtual);

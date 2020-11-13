@@ -11,8 +11,5 @@ public class AdministradorDTO {
 	
 	private String cpf;
 	
-	private String email;
-	
-	private String senha;
-	
+	private String email;	
 }

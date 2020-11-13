@@ -61,10 +61,10 @@ public class AdministradorController implements AdministradorControllerOpenApi {
 
 	@Override
 	@PutMapping("/{id}")
-	public ResponseEntity<?> atualizar(@RequestBody Administrador administrador, @PathVariable Long id) {
+	public ResponseEntity<?> atualizar(@RequestBody AdministradorRequest administrador, @PathVariable Long id) {
 		Administrador administradorAtual = _service.buscar(id).orElse(null);
 		if (administradorAtual != null) {
-			BeanUtils.copyProperties(administrador, administradorAtual, "id");
+			BeanUtils.copyProperties(administrador, administradorAtual, "id", "usuarioId");
 			_service.atualizar(administradorAtual);
 			return ResponseEntity.ok(administradorAtual);
 		}

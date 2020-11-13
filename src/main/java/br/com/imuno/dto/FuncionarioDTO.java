@@ -14,6 +14,5 @@ public class FuncionarioDTO {
 	private String email;
 	private String telefone;
 	private String telefoneEmergencia;
-	private String senha;
-
+	
 }

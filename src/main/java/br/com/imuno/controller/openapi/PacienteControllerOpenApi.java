@@ -57,5 +57,5 @@ public interface PacienteControllerOpenApi {
 		@ApiResponse(code = 404, message = "O recurso não foi encontrado", response = Problem.class)
 	})
 	@ApiImplicitParam(name = "id", value = "Id a ser atualizado", required = true, dataType = "int", paramType = "path", example = "1")
-	ResponseEntity<?> atualizar(@ApiParam(name = "corpo", value = "Representação de um novo paciente", required = true) @Valid Paciente paciente, Long id);
+	ResponseEntity<?> atualizar(@ApiParam(name = "corpo", value = "Representação de um novo paciente", required = true) @Valid PacienteRequest paciente, Long id);
 }

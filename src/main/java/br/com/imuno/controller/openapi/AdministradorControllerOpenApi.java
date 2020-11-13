@@ -57,5 +57,5 @@ public interface AdministradorControllerOpenApi {
 		@ApiResponse(code = 404, message = "O recurso não foi encontrado", response = Problem.class)
 	})
 	@ApiImplicitParam(name = "id", value = "Id a ser atualizado", required = true, dataType = "int", paramType = "path", example = "1")
-	ResponseEntity<?> atualizar(@ApiParam(name = "corpo", value = "Representação de um novo Administrador", required = true) @Valid Administrador administrador, Long id);
+	ResponseEntity<?> atualizar(@ApiParam(name = "corpo", value = "Representação de um novo Administrador", required = true) @Valid AdministradorRequest administrador, Long id);
 }

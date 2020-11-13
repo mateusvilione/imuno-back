@@ -61,10 +61,10 @@ public class PacienteController implements PacienteControllerOpenApi {
 
 	@Override
 	@PutMapping("/{id}")
-	public ResponseEntity<?> atualizar(@RequestBody Paciente paciente, @PathVariable Long id) {
+	public ResponseEntity<?> atualizar(@RequestBody PacienteRequest paciente, @PathVariable Long id) {
 		Paciente pacienteAtual = _service.buscar(id).orElse(null);
 		if (pacienteAtual != null) {
-			BeanUtils.copyProperties(paciente, pacienteAtual, "id");
+			BeanUtils.copyProperties(paciente, pacienteAtual, "id", "usuarioId");
 			_service.atualizar(pacienteAtual);
 			return ResponseEntity.ok(pacienteAtual);
 		}
