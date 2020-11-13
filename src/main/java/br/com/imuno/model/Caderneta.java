@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 
 @Data
@@ -43,6 +45,7 @@ public class Caderneta {
 	@JoinColumn(name = "paciente_id", nullable = false)
 	private Paciente paciente;
 	
+	@DateTimeFormat(pattern="yyyy-mm-dd")
 	@Column(name="data_vacinacao")
     private LocalDate dataVacinacao;
 }

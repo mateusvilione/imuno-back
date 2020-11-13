@@ -66,8 +66,9 @@ public class FuncionarioService {
 	}
 	
 	@Transactional
-	public void atualizar (Funcionario funcionario) {
-		repository.save(funcionario);
+	public void atualizar (Funcionario funcionarioRequest) {
+		funcionarioRequest.setSenha(passwordEncoder.encode(funcionarioRequest.getSenha()));
+		repository.save(funcionarioRequest);
 	}
 	
 	public Optional<Funcionario> buscar(Long id) {

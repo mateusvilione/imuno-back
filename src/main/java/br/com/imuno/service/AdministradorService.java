@@ -66,8 +66,9 @@ public class AdministradorService {
 	}
 	
 	@Transactional
-	public void atualizar (Administrador administrador) {
-		repository.save(administrador);
+	public void atualizar (Administrador administradorRequest) {
+		administradorRequest.setSenha(passwordEncoder.encode(administradorRequest.getSenha()));
+		repository.save(administradorRequest);
 	}
 	
 	public Optional<Administrador> buscar(Long id) {

@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 
 @Data
@@ -30,6 +32,7 @@ public class Paciente {
 	@Column
 	private String senha;
 	
+	@DateTimeFormat(pattern="yyyy-mm-dd")
 	@Column(name = "data_nascimento")
 	private LocalDate dataNascimento;
 	

@@ -67,8 +67,9 @@ public class PacienteService {
 	}
 
 	@Transactional
-	public void atualizar(Paciente paciente) {
-		_repository.save(paciente);
+	public void atualizar(Paciente pacienteRequest) {
+		pacienteRequest.setSenha(passwordEncoder.encode(pacienteRequest.getSenha()));
+		_repository.save(pacienteRequest);
 	}
 
 	public Optional<Paciente> buscar(Long id) {

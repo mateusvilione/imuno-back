@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
@@ -27,15 +29,18 @@ public class Lote {
 	@Column
 	private String codigo;
 	
+	@DateTimeFormat(pattern="yyyy-mm-dd")
 	@Column(name = "data_fabricacao")
 	private LocalDate dataFabricacao;
 	
 	@Column
 	private Integer quantidade;
 	
+	@DateTimeFormat(pattern="yyyy-mm-dd")
 	@Column(name = "data_entrada")
 	private LocalDate dataEntrada;
 	
+	@DateTimeFormat(pattern="yyyy-mm-dd")
 	@Column(name = "data_validade")
 	private LocalDate dataValidade;
 	
