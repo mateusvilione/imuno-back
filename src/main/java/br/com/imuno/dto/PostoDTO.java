@@ -10,6 +10,10 @@ public class PostoDTO {
 	
 	private String nome;
 	
+	private String cnes;
+
+	private String telefone;
+	
 	private Endereco endereco;
 	
 	private Administrador administrador;

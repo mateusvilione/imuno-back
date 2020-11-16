@@ -1,13 +1,13 @@
 package br.com.imuno.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -23,9 +23,16 @@ public class Posto {
 	@Column
 	private String nome;
 	
+	@Column
+	private String cnes;
+	
+	@Column
+	private String telefone;
+	
 	@Embedded
 	private Endereco endereco;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@ManyToOne
+	@JoinColumn(name = "administrador_id", nullable = false)
 	private Administrador administrador;
 }
