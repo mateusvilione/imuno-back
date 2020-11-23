@@ -32,7 +32,7 @@ public class Paciente {
 	@Column
 	private String senha;
 	
-	@DateTimeFormat(pattern="yyyy-mm-dd")
+	@DateTimeFormat(pattern="0:yyyy-mm-dd")
 	@Column(name = "data_nascimento")
 	private LocalDate dataNascimento;
 	

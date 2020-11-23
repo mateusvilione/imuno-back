@@ -34,10 +34,6 @@ public class Caderneta {
 	private Funcionario funcionario;
 	
 	@ManyToOne
-	@JoinColumn(name = "vacina_id", nullable = false)
-	private Vacina vacina;
-	
-	@ManyToOne
 	@JoinColumn(name = "dose_id", nullable = false)
 	private Dose dose;
 	

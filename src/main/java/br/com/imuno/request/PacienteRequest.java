@@ -1,5 +1,7 @@
 package br.com.imuno.request;
 
+import java.time.LocalDate;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -13,8 +15,7 @@ public class PacienteRequest {
 	@NotBlank
 	private String nome;
 	
-	@NotBlank
-	private String dataNascimento;
+	private LocalDate dataNascimento;
 	
 	@NotBlank
 	private String genero;
