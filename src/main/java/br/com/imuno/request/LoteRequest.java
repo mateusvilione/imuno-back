@@ -7,6 +7,8 @@ import lombok.Data;
 @Data
 public class LoteRequest {
 
+	private Long id;
+	
 	private String codigo;
 
 	private LocalDate dataFabricacao;

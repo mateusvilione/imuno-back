@@ -10,6 +10,8 @@ import lombok.Data;
 @Data
 public class LoteDTO {
 
+	private Long id;
+	
 	private String codigo;
 
 	private LocalDate dataFabricacao;
