@@ -93,4 +93,8 @@ public class PacienteService {
 		return _repository.findAll().stream().map(pac -> _mapper.modelToDTO(pac)).collect(Collectors.toList());
 	}
 
+	public Optional<Paciente> buscarCpfRne(String cpfRne) {
+		return _repository.findByCpfRne(cpfRne);
+	}
+
 }

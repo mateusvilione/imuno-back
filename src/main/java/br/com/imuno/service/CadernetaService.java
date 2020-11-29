@@ -37,8 +37,8 @@ public class CadernetaService {
 		repository.save(caderneta);
 	}
 
-	public Optional<Caderneta> buscar(Long id) {
-		return repository.findById(id);
+	public List<Caderneta> buscar(Long id) {
+		return repository.findByPaciente(id);
 	}
 
 	@Transactional

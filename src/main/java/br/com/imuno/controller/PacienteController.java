@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.imuno.controller.openapi.PacienteControllerOpenApi;
@@ -44,9 +46,18 @@ public class PacienteController implements PacienteControllerOpenApi {
 	}
 
 	@Override
-	@GetMapping("/{id}")
-	public ResponseEntity<Paciente> buscar(@PathVariable Long id) {
-		Optional<Paciente> paciente = _service.buscar(id);
+	@GetMapping("/filtro")
+	public ResponseEntity<Paciente> buscar(@RequestParam(required = false) Long id, @RequestParam(required = false) String cpfRne ) {
+		Optional<Paciente> paciente = Optional.ofNullable(new Paciente());
+		
+		if(id != null) {
+			paciente = _service.buscar(id);
+		}
+		
+		if(id == null && cpfRne != null) {
+			paciente = _service.buscarCpfRne(cpfRne);
+		}
+		
 		if (paciente.isPresent()) {
 			return ResponseEntity.ok(paciente.get());
 		}

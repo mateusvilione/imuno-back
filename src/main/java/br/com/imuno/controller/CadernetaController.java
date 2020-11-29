@@ -38,12 +38,10 @@ public class CadernetaController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Caderneta> buscar(@PathVariable Long id) {
-		Optional<Caderneta> caderneta = _service.buscar(id);
-		if (caderneta.isPresent()) {
-			return ResponseEntity.ok(caderneta.get());
-		}
-		return ResponseEntity.notFound().build();
+	public List<Caderneta> buscar(@PathVariable Long id) {
+		List<Caderneta> caderneta = _service.buscar(id);
+
+		return caderneta;
 	}
 
 	@GetMapping

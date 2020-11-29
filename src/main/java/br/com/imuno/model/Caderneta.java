@@ -13,18 +13,18 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import br.com.imuno.model.enums.Doses;
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "caderneta")
 public class Caderneta {
-	
-	
+		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "lote_id", nullable = false)
 	private Lote lote;
@@ -34,9 +34,11 @@ public class Caderneta {
 	private Funcionario funcionario;
 	
 	@ManyToOne
-	@JoinColumn(name = "dose_id", nullable = false)
-	private Dose dose;
+	@JoinColumn(name = "vacina_id", nullable = false)
+	private Vacina vacina;
 	
+	private Doses dose;
+		
 	@ManyToOne
 	@JoinColumn(name = "paciente_id", nullable = false)
 	private Paciente paciente;

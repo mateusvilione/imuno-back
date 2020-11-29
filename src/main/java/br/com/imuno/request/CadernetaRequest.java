@@ -2,6 +2,7 @@ package br.com.imuno.request;
 
 import java.time.LocalDate;
 
+import br.com.imuno.model.enums.Doses;
 import lombok.Data;
 
 @Data
@@ -13,7 +14,7 @@ public class CadernetaRequest {
 
 	private Long vacinaId;
 
-	private Long doseId;
+	private Doses dose;
 
 	private Long pacienteId;
 	

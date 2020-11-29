@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
@@ -33,8 +34,7 @@ public interface PacienteControllerOpenApi {
 		@ApiResponse(code = 200, message = "Buscar Paciente pelo ID", response = PacienteDTO.class),
 		@ApiResponse(code = 404, message = "O recurso não foi encontrado", response = Problem.class) 
 	})
-	@ApiImplicitParam(name = "id", value = "ID a ser buscado", required = true, dataType = "int", paramType = "path", example = "1")
-	ResponseEntity<Paciente> buscar(Long id);
+	ResponseEntity<Paciente> buscar(Long id, String cpfRne);
 	
 	@ApiOperation(httpMethod = "GET", value = "Buscar todos os Pacientes")
 	@ApiResponses({ 
