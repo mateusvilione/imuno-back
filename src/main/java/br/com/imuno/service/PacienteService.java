@@ -97,4 +97,8 @@ public class PacienteService {
 		return _repository.findByCpfRne(cpfRne);
 	}
 
+	public Optional<Paciente> buscarId(Long id) {
+		return _repository.findById(id);
+	}
+	
 }

@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.imuno.dto.PostoDTO;
+import br.com.imuno.model.Paciente;
 import br.com.imuno.model.Posto;
 import br.com.imuno.request.PostoRequest;
 import br.com.imuno.service.PostoService;
@@ -54,8 +56,13 @@ public class PostoController implements PostoControllerOpenApi {
 
 	@Override
 	@GetMapping
-	public List<PostoDTO> listar() {
-		return _service.listar();
+	public List<PostoDTO> listar(@RequestParam(required = false) Long administradorId) {
+		
+		if(administradorId != null) {
+			return _service.findByAdministradorId(administradorId);
+		}
+		
+		return _service.listar();	
 	}
 
 	@Override

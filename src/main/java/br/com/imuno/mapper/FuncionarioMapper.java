@@ -15,6 +15,8 @@ public class FuncionarioMapper {
 	private ModelMapper modelMapper;
 	
 	public Funcionario requestToModel(FuncionarioRequest funcionarioRequest) {
+		modelMapper.getConfiguration().setAmbiguityIgnored(true);
+		modelMapper.getConfiguration().setFieldMatchingEnabled(true);
 		return modelMapper.map(funcionarioRequest, Funcionario.class);
 	}
 	

@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
+import com.google.common.base.Optional;
+
 import br.com.imuno.dto.PacienteDTO;
 import br.com.imuno.exception.config.Problem;
 import br.com.imuno.model.Paciente;
@@ -34,14 +36,9 @@ public interface PacienteControllerOpenApi {
 		@ApiResponse(code = 200, message = "Buscar Paciente pelo ID", response = PacienteDTO.class),
 		@ApiResponse(code = 404, message = "O recurso não foi encontrado", response = Problem.class) 
 	})
-	ResponseEntity<Paciente> buscar(Long id, String cpfRne);
+	ResponseEntity<Paciente> buscar(Long id);
 	
-	@ApiOperation(httpMethod = "GET", value = "Buscar todos os Pacientes")
-	@ApiResponses({ 
-		@ApiResponse(code = 200, message = "Buscar todos os Pacientes", response = PacienteDTO.class),
-		@ApiResponse(code = 404, message = "O recurso não foi encontrado", response = Problem.class) 
-	})
-	public List<PacienteDTO> listar();
+
 	
 	@ApiOperation(httpMethod = "DELETE", value = "Excluir Paciente pelo ID", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ApiResponses({ 

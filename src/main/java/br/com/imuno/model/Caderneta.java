@@ -43,6 +43,10 @@ public class Caderneta {
 	@JoinColumn(name = "paciente_id", nullable = false)
 	private Paciente paciente;
 	
+	@ManyToOne
+	@JoinColumn(name = "posto_id", nullable = false)
+	private Posto posto;
+	
 	@DateTimeFormat(pattern="yyyy-mm-dd")
 	@Column(name="data_vacinacao")
     private LocalDate dataVacinacao;

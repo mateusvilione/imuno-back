@@ -57,5 +57,11 @@ public class PostoService {
 				.map(p -> mapper.modelToDTO(p))
 				.collect(Collectors.toList());
 	}
+
+	public List<PostoDTO> findByAdministradorId(Long administradorId) {
+		return repository.findByAdministradorId(administradorId).stream()
+				.map(p -> mapper.modelToDTO(p))
+				.collect(Collectors.toList());
+	}
 	
 }

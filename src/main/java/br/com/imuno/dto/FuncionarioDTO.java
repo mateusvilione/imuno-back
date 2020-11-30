@@ -1,6 +1,7 @@
 package br.com.imuno.dto;
 
 import br.com.imuno.model.Endereco;
+import br.com.imuno.model.Posto;
 import lombok.Data;
 
 @Data
@@ -14,5 +15,5 @@ public class FuncionarioDTO {
 	private String email;
 	private String telefone;
 	private String telefoneEmergencia;
-	
+	private Posto posto;
 }

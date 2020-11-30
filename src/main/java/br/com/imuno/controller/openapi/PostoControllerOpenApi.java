@@ -41,7 +41,7 @@ public interface PostoControllerOpenApi {
 		@ApiResponse(code = 200, message = "Buscar todos os Postos", response = PostoDTO.class),
 		@ApiResponse(code = 404, message = "O recurso não foi encontrado", response = Problem.class) 
 	})
-	public List<PostoDTO> listar();
+	public List<PostoDTO> listar(Long administradorId);
 	
 	@ApiOperation(httpMethod = "DELETE", value = "Excluir Posto pelo ID", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ApiResponses({ 

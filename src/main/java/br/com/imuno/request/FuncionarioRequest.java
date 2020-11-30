@@ -16,4 +16,5 @@ public class FuncionarioRequest {
 	private String telefone;
 	private String telefoneEmergencia;
 	private String senha;
+	private Long postoId;
 }

@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import br.com.imuno.model.Funcionario;
 import br.com.imuno.model.Lote;
 import br.com.imuno.model.Paciente;
+import br.com.imuno.model.Posto;
 import br.com.imuno.model.Vacina;
 import br.com.imuno.model.enums.Doses;
 import lombok.Data;
@@ -20,6 +21,8 @@ public class CadernetaDTO {
 	private Doses dose;
 
 	private Paciente paciente;
+	
+	private Posto posto;
 	
 	private LocalDate dataVacinacao;
 }

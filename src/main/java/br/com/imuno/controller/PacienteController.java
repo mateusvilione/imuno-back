@@ -46,28 +46,27 @@ public class PacienteController implements PacienteControllerOpenApi {
 	}
 
 	@Override
-	@GetMapping("/filtro")
-	public ResponseEntity<Paciente> buscar(@RequestParam(required = false) Long id, @RequestParam(required = false) String cpfRne ) {
-		Optional<Paciente> paciente = Optional.ofNullable(new Paciente());
-		
-		if(id != null) {
-			paciente = _service.buscar(id);
-		}
-		
-		if(id == null && cpfRne != null) {
-			paciente = _service.buscarCpfRne(cpfRne);
-		}
-		
+	@GetMapping("/{id}")
+	public ResponseEntity<Paciente> buscar(@PathVariable Long id) {
+		Optional<Paciente> paciente = _service.buscarId(id);
+			
 		if (paciente.isPresent()) {
 			return ResponseEntity.ok(paciente.get());
 		}
 		return ResponseEntity.notFound().build();
 	}
 
-	@Override
-	@GetMapping
-	public List<PacienteDTO> listar() {
-		return _service.listar();
+	@GetMapping("/filtro/{cpfRne}")
+	public Optional<Paciente> listar(@PathVariable String cpfRne) {
+				
+		String cpfRneFormatado = cpfRne.substring(0, 3) + ".";
+		cpfRneFormatado += cpfRne.substring(3, 6) + ".";
+		cpfRneFormatado += cpfRne.substring(6, 9) + "-";
+		cpfRneFormatado += cpfRne.substring(9, 11);
+		
+		System.out.println(cpfRneFormatado);
+		
+		return _service.buscarCpfRne(cpfRneFormatado);
 	}
 
 	@Override

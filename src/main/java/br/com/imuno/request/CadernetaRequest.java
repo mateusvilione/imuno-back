@@ -19,5 +19,7 @@ public class CadernetaRequest {
 	private Long pacienteId;
 	
 	private LocalDate dataVacinacao;
+	
+	private Long PostoId;
 
 }
