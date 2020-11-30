@@ -31,7 +31,7 @@ public class PostoController implements PostoControllerOpenApi {
 
 	@Autowired
 	private PostoService _service;
-	
+
 	@Override
 	@PostMapping
 	public ResponseEntity<?> salvar(@RequestBody PostoRequest postoRequest) {
@@ -53,15 +53,10 @@ public class PostoController implements PostoControllerOpenApi {
 		return ResponseEntity.notFound().build();
 	}
 
-	@Override
-	@GetMapping
-	public List<PostoDTO> listar(@RequestParam(required = false) Long administradorId) {
-		
-		if(administradorId != null) {
-			return _service.findByAdministradorId(administradorId);
-		}
-		
-		return _service.listar();	
+	
+	@GetMapping("/admin/{administradorId}")
+	public Optional<Posto> listar(@PathVariable Long administradorId) {
+		return _service.findByAdministradorId(administradorId);
 	}
 
 	@Override

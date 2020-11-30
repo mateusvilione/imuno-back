@@ -7,6 +7,8 @@ import javax.validation.Valid;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
+import com.google.common.base.Optional;
+
 import br.com.imuno.dto.PostoDTO;
 import br.com.imuno.exception.config.Problem;
 import br.com.imuno.model.Posto;
@@ -36,13 +38,7 @@ public interface PostoControllerOpenApi {
 	@ApiImplicitParam(name = "id", value = "ID a ser buscado", required = true, dataType = "int", paramType = "path", example = "1")
 	ResponseEntity<Posto> buscar(Long id);
 	
-	@ApiOperation(httpMethod = "GET", value = "Buscar todos os Postos")
-	@ApiResponses({ 
-		@ApiResponse(code = 200, message = "Buscar todos os Postos", response = PostoDTO.class),
-		@ApiResponse(code = 404, message = "O recurso não foi encontrado", response = Problem.class) 
-	})
-	public List<PostoDTO> listar(Long administradorId);
-	
+
 	@ApiOperation(httpMethod = "DELETE", value = "Excluir Posto pelo ID", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ApiResponses({ 
 		@ApiResponse(code = 204, message = "Posto excluído com sucesso", response = PostoDTO.class),
