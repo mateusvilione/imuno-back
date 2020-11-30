@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.imuno.dto.PostoDTO;
-import br.com.imuno.model.Paciente;
 import br.com.imuno.model.Posto;
 import br.com.imuno.request.PostoRequest;
 import br.com.imuno.service.PostoService;
