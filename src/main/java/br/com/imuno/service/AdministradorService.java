@@ -52,17 +52,22 @@ public class AdministradorService {
         for (Grupo t : list) 
         	listaGrupo.add(t); 
 		
+
+		
+		Administrador administrador = mapper.requestToModel(administradorRequest);
+		administrador.setSenha(passwordEncoder.encode(administradorRequest.getSenha()));
+		
+		Administrador idAdm = repository.save(administrador);
+		
 		usuario.setNome(administradorRequest.getNome());
 		usuario.setEmail(administradorRequest.getEmail());
 		usuario.setSenha(passwordEncoder.encode(administradorRequest.getSenha()));
 		usuario.setGrupos(listaGrupo);
+		usuario.setAdministradorId(idAdm.getId());
 		
-		Usuario iduser = _usuarioRepository.save(usuario);
+		_usuarioRepository.save(usuario);
 		
-		Administrador administrador = mapper.requestToModel(administradorRequest);
-		administrador.setUsuarioId(iduser.getId());
-		administrador.setSenha(passwordEncoder.encode(administradorRequest.getSenha()));
-		return mapper.modelToDTO(repository.save(administrador));
+		return mapper.modelToDTO(idAdm);
 	}
 	
 	@Transactional

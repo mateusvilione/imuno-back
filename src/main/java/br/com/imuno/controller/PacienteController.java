@@ -64,8 +64,7 @@ public class PacienteController implements PacienteControllerOpenApi {
 		cpfRneFormatado += cpfRne.substring(6, 9) + "-";
 		cpfRneFormatado += cpfRne.substring(9, 11);
 		
-		System.out.println(cpfRneFormatado);
-		
+	
 		return _service.buscarCpfRne(cpfRneFormatado);
 	}
 

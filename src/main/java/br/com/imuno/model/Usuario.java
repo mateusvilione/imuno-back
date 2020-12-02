@@ -41,15 +41,12 @@ public class Usuario {
 	@JoinTable(name = "usuario_grupo", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "grupo_id"))
 	private Set<Grupo> grupos = new HashSet<>();
 
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "usuario_id")
-	private List<Administrador> administradores;
+	@Column(name = "administrador_id", nullable = true)
+	private Long administradorId;
 		
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "usuario_id")
-	private List<Paciente> pacientes;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "usuario_id")
-	private List<Funcionario> funcionarios;
+	@Column(name = "paciente_id", nullable = true)
+	private Long pacienteId;
+
+	@Column(name = "funcionario_id", nullable = true)
+	private Long funcionarioId;
 }

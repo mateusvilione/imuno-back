@@ -50,11 +50,16 @@ public class LoteController {
 		return ResponseEntity.notFound().build();
 	}
 
+	@GetMapping("/filtro/{vacinaId}")
+	public List<Lote> listarPorVacina(@PathVariable Long vacinaId) {
+		return _service.buscarLotePelaVacina(vacinaId);
+	}
+
 	@GetMapping
 	public List<LoteDTO> listar() {
 		return _service.listar();
 	}
-
+	
 	@PutMapping("/{id}")
 	public ResponseEntity<?> atualizar(@RequestBody Lote lote, @PathVariable Long id) {
 		Lote loteAtual = _service.buscar(id).orElse(null);

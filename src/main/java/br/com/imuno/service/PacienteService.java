@@ -52,18 +52,21 @@ public class PacienteService {
         for (Grupo t : list) 
         	listaGrupo.add(t); 
 
+        
+		Paciente paciente = _mapper.requestToModel(pacienteRequest);
+		paciente.setSenha(passwordEncoder.encode(pacienteRequest.getSenha()));
+		
+		Paciente idPac = _repository.save(paciente);
+        
 		usuario.setNome(pacienteRequest.getNome());
 		usuario.setEmail(pacienteRequest.getEmail());
 		usuario.setSenha(passwordEncoder.encode(pacienteRequest.getSenha()));
 		usuario.setGrupos(listaGrupo);
+		usuario.setPacienteId(idPac.getId());
 
-		Usuario iduser = _usuarioRepository.save(usuario);
+		_usuarioRepository.save(usuario);
 
-		Paciente paciente = _mapper.requestToModel(pacienteRequest);
-		paciente.setUsuarioId(iduser.getId());
-		paciente.setSenha(passwordEncoder.encode(pacienteRequest.getSenha()));
-
-		return _mapper.modelToDTO(_repository.save(paciente));
+		return _mapper.modelToDTO(idPac);
 	}
 
 	@Transactional

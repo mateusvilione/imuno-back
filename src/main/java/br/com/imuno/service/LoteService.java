@@ -56,4 +56,8 @@ public class LoteService {
 		return repository.findAll().stream().map(lote -> mapper.modelToDTO(lote)).collect(Collectors.toList());
 	}
 
+	public List<Lote> buscarLotePelaVacina(Long vacinaId) {
+		return repository.findByVacinaId(vacinaId);
+	}
+
 }

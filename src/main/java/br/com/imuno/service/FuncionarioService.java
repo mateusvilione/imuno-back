@@ -52,17 +52,21 @@ public class FuncionarioService {
         for (Grupo t : list) 
         	listaGrupo.add(t);
 		
+
+		Funcionario funcionario = mapper.requestToModel(funcionarioRequest);
+		funcionario.setSenha(passwordEncoder.encode(funcionarioRequest.getSenha()));
+		
+		Funcionario idfunc = repository.save(funcionario);
+		
 		usuario.setNome(funcionarioRequest.getNome());
 		usuario.setEmail(funcionarioRequest.getEmail());
 		usuario.setSenha(passwordEncoder.encode(funcionarioRequest.getSenha()));
 		usuario.setGrupos(listaGrupo);
+		usuario.setFuncionarioId(idfunc.getId());
 		
-		Usuario iduser = _usuarioRepository.save(usuario);
-		
-		Funcionario funcionario = mapper.requestToModel(funcionarioRequest);
-		funcionario.setUsuarioId(iduser.getId());
-		funcionario.setSenha(passwordEncoder.encode(funcionarioRequest.getSenha()));
-		return mapper.modelToDTO(repository.save(funcionario));
+		_usuarioRepository.save(usuario);
+				
+		return mapper.modelToDTO(idfunc);
 	}
 	
 	@Transactional
