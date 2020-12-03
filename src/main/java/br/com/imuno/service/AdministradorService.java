@@ -52,9 +52,7 @@ public class AdministradorService {
         for (Grupo t : list) 
         	listaGrupo.add(t); 
 		
-
-		
-		Administrador administrador = mapper.requestToModel(administradorRequest);
+        Administrador administrador = mapper.requestToModel(administradorRequest);
 		administrador.setSenha(passwordEncoder.encode(administradorRequest.getSenha()));
 		
 		Administrador idAdm = repository.save(administrador);
@@ -66,6 +64,8 @@ public class AdministradorService {
 		usuario.setAdministradorId(idAdm.getId());
 		
 		_usuarioRepository.save(usuario);
+		
+		System.out.println("aaaaaaaaaaaaaa" + usuario);
 		
 		return mapper.modelToDTO(idAdm);
 	}

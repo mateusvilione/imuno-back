@@ -22,14 +22,16 @@ private static final long serialVersionUID = 1L;
 	
 	
 	public AuthUser(Usuario usuario, Collection<? extends GrantedAuthority> permissoes) {
-		super(usuario.getEmail(), usuario.getSenha(), permissoes);
+		super(usuario.getEmail(), usuario.getSenha(),  permissoes);
 		
 		this.userId = usuario.getId();
 		this.nomeCompleto = usuario.getNome();
 		this.pacienteId = usuario.getPacienteId();
 		this.funcionarioId = usuario.getFuncionarioId();
-		this.administradorId = usuario.getPacienteId();
+		this.administradorId = usuario.getAdministradorId();
 		
+		
+		System.out.println("aaaaaaaaaaaaaaa" + usuario);
 	}
 	
 }

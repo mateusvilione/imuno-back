@@ -61,7 +61,7 @@ public class LoteController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<?> atualizar(@RequestBody Lote lote, @PathVariable Long id) {
+	public ResponseEntity<?> atualizar(@RequestBody LoteRequest lote, @PathVariable Long id) {
 		Lote loteAtual = _service.buscar(id).orElse(null);
 		if (loteAtual != null) {
 			BeanUtils.copyProperties(lote, loteAtual, "id");

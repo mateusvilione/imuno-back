@@ -22,6 +22,8 @@ public class JwtCustomClaimsTokenEnhancer implements TokenEnhancer {
 			info.put("administrador_id", authUser.getAdministradorId());
 			info.put("funcionario_id", authUser.getFuncionarioId());
 			
+			System.out.println("bbbbbbbbbbbbbbb" + authUser);
+			
 			DefaultOAuth2AccessToken oAuth2AccessToken = (DefaultOAuth2AccessToken) accessToken;
 			oAuth2AccessToken.setAdditionalInformation(info);
 		}
